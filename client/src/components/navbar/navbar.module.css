@@ -1,0 +1,23 @@
+.container {
+  background: var(--PrimaryTeal);
+  color: var(--lightTextColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.logo {
+  font-weight: bold;
+  font-size: 22px;
+}
+.navItem {
+}
+.navItem ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.navItem ul > * {
+  margin-right: 25px;
+  font-size: 14px;
+}

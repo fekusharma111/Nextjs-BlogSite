@@ -1,0 +1,5 @@
+.container {
+  background: var(--PrimaryTeal);
+  height: calc(100vh - 70vh);
+  color: var(--lightTextColor);
+}
