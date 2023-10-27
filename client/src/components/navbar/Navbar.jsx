@@ -1,32 +1,33 @@
 import React from "react";
 import styles from "./navbar.module.css";
+import Link from "next/link";
 
 const Navbar = () => {
   const NavItem = [
     {
       id: "home",
-      name: "Home",
-      link: "/",
+      title: "Home",
+      url: "/",
     },
     {
       id: "blog",
-      name: "Blog",
-      link: "/blog",
+      title: "Blog",
+      url: "/blogs",
     },
     {
       id: "categories",
-      name: "Categories",
-      link: "/categories",
+      title: "Categories",
+      url: "/categories",
     },
     {
       id: "about",
-      name: "About",
-      link: "/about",
+      title: "About",
+      url: "/about-us",
     },
     {
       id: "contact",
-      name: "Contact",
-      link: "/contact",
+      title: "Contact",
+      url: "/contact",
     },
   ];
 
@@ -36,7 +37,11 @@ const Navbar = () => {
       <div className={styles.navItem}>
         <ul>
           {NavItem.map((item) => (
-            <li key={item.id}>{item.name}</li>
+            <li key={item.id}>
+              <Link href={item.url} className={styles.link}>
+                {item.title}
+              </Link>
+            </li>
           ))}
         </ul>
       </div>
