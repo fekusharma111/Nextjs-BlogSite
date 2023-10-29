@@ -1,2 +1,10 @@
 .container {
 }
+.itemContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.itemContainer div {
+  width: 50vw;
+}

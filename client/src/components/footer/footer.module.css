@@ -14,3 +14,7 @@
   width: fit-content;
   padding: 10px;
 }
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+}

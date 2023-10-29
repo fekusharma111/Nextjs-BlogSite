@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./footer.module.css";
+import { FooterNavPageLinks } from "@/utils/constants";
+import Link from "next/link";
 
 const FooterNav = () => {
   return (
@@ -15,11 +17,11 @@ const FooterNav = () => {
           <p>Categories</p>
         </div>
         <div className={styles.footerLinks}>
-          <p>About us</p>
-          <p>Contact us</p>
-          <p>Sitemap</p>
-          <p>Privacy policy</p>
-          <p>Terms of Service</p>
+          {FooterNavPageLinks.map((item) => (
+            <Link href={item.link} key={item.id}>
+              {item.title}
+            </Link>
+          ))}
         </div>
       </div>
       <div className={styles.footerNavItem}>
