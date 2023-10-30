@@ -1,0 +1,9 @@
+.container {
+}
+.item {
+  display: flex;
+}
+.blogContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
