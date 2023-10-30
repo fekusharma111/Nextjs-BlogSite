@@ -2,4 +2,36 @@
   background: var(--PrimaryTeal);
   height: calc(100vh - 70vh);
   color: var(--lightTextColor);
+  display: flex;
+  align-items: center;
+  gap: 100px;
 }
+
+.item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.title {
+  margin-left: 100px;
+  width: 40vw;
+  font-size: 72px;
+  background: linear-gradient(to right, white, #008080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* animation: slideLeftToRight 12s linear infinite; */
+}
+/* .headerContent {
+  animation: slideLeftToRight 12s linear infinite;
+  -webkit-animation: slideLeftToRight 12s linear infinite;
+}
+
+@keyframes slideLeftToRight {
+  0% {
+    background-position: 0 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+} */
