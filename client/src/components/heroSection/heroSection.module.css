@@ -20,7 +20,33 @@
   background: linear-gradient(to right, white, #008080);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  position: relative;
   /* animation: slideLeftToRight 12s linear infinite; */
+}
+.headerImg {
+  object-fit: cover;
+}
+.headerImageDiv1 {
+  border: 8px solid #a5cbcb;
+  border-radius: 10px;
+  position: absolute;
+  right: 300px;
+  top: 100px;
+  z-index: 10;
+  /* right: 300px; */
+}
+.headerImageDiv2 {
+  border: 8px solid #a5cbcb;
+  border-radius: 10px;
+  position: absolute;
+  right: 200px;
+  top: 100px;
+  /* z-index: 1; */
+  /* right: 300px; */
+}
+.headerImage {
+  /* position: absolute;
+  right: 300px; */
 }
 /* .headerContent {
   animation: slideLeftToRight 12s linear infinite;

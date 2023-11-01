@@ -6,7 +6,9 @@ import { NavItem } from "@/utils/constants";
 const Navbar = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.logo}>LAYER MATRIX</div>
+      <Link href="/" className={styles.logo}>
+        LAYER MATRIX
+      </Link>
       <div className={styles.navItem}>
         <ul>
           {NavItem.map((item) => (
