@@ -32,7 +32,6 @@ export const DummyBlogPost = [
     trending: false,
   },
   {
-    i: "as",
     id: 3,
     categories: ["Finance", "Technology"],
     title: "Investing in Cryptocurrencies: A Comprehensive Guide",
