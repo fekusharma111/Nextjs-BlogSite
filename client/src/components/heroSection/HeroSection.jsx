@@ -9,12 +9,10 @@ const HeroSection = () => {
         <h1 className={styles.title}>Where Stories Meet Insights</h1>
       </div>
       <div className={styles.headerImage}>
-        <div className={styles.headerImageDiv1}>
-          <Image src="/heroSection/tech.jpeg" width={200} height={200} alt="techBanner" className={styles.headerImg} />
-        </div>
-        <div className={styles.headerImageDiv2}>
-          <Image src="/heroSection/tech.jpeg" width={200} height={200} alt="techBanner" className={styles.headerImg} />
-        </div>
+        {/* <div className={styles.headerImageDiv1}> */}
+
+        <Image src="/heroSection/3.svg" alt="techBanner" width={500} height={500} className={styles.headerImg} priority={true} />
+        {/* </div> */}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@
 /client/node_modules/
 client/.next/
 node_modules
+.env
 /node_modules
 /.pnp
 .pnp.js

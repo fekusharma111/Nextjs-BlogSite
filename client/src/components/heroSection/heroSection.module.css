@@ -1,6 +1,6 @@
 .container {
   background: var(--PrimaryTeal);
-  height: calc(100vh - 70vh);
+  height: calc(100vh - 65vh);
   color: var(--lightTextColor);
   display: flex;
   align-items: center;
@@ -25,6 +25,7 @@
 }
 .headerImg {
   object-fit: cover;
+  max-width: 100%;
 }
 .headerImageDiv1 {
   border: 8px solid #a5cbcb;
@@ -45,8 +46,10 @@
   /* right: 300px; */
 }
 .headerImage {
-  /* position: absolute;
-  right: 300px; */
+  position: absolute;
+  right: 100px;
+  max-width: 50%;
+  width: 500px;
 }
 /* .headerContent {
   animation: slideLeftToRight 12s linear infinite;
