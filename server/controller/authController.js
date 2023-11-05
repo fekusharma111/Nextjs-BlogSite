@@ -108,7 +108,7 @@ export const validatePageRefreshLogin = async (req, res) => {
 };
 export const loginUser = async (req, res) => {
   const { userName, password } = req.body;
-  const user = await User.findOne({ userName: userName });
+  const user = await User.findOneAndUpdate({ username: userName }, { lastloginTime: new Date().getTime() }, { new: true });
   if (!user) {
     return res.status(400).json({ message: "User Doesn't Exist" });
   }
