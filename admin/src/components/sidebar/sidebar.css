@@ -1,0 +1,16 @@
+.sidelink {
+  /* background: red; */
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  cursor: pointer;
+  color: rgb(99, 115, 129);
+}
+.sidelink:hover {
+  text-decoration: none;
+  background-color: rgba(145, 158, 171, 0.08);
+}
+.sidelink.active {
+  background-color: rgba(0, 167, 111, 0.08);
+  color: rgb(0, 167, 111);
+}

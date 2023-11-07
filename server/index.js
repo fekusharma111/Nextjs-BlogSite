@@ -34,8 +34,8 @@ app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", router);
 
-const db_url = process.env.MONGO_URI;
-connection(db_url);
+// const db_url = process.env.MONGO_URI;
+connection();
 
 app.listen(5000, () => {
   console.log("BlogSite server is listening on 5000");

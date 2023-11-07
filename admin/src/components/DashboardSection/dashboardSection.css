@@ -1,0 +1,88 @@
+.column {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+}
+.heroContainer {
+  height: 25vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "column1 column2 column5"
+    "column3 column4 column5";
+}
+
+.column1 {
+  grid-area: column1;
+  /* max-height: 50%; */
+}
+
+.column2 {
+  grid-area: column2;
+  /* max-height: 50%; */
+}
+
+.column3 {
+  grid-area: column3;
+  /* max-height: 50%; */
+}
+
+.column4 {
+  grid-area: column4;
+  /* max-height: 50%; */
+}
+
+.column5 {
+  grid-area: column5;
+  /* max-height: 100%; */
+}
+.heroContainer > * {
+  margin: 10px;
+}
+
+.dashboradBlogTableContainer > * {
+  margin: 10px;
+}
+.dashboardTrafficSectionContainer {
+  height: 40vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "circleChart trafficsource trafficsource"
+    "circleChart trafficsource trafficsource";
+}
+.dashboardTrafficSectionContainer > * {
+  margin: 10px;
+}
+.circleChart {
+  grid-area: circleChart;
+}
+
+.trafficsource {
+  grid-area: trafficsource;
+}
+.dashboradBlogTableContainer {
+  height: 40vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "dashboardAllBlogTable dashboardAllBlogTable newchart"
+    "dashboardAllBlogTable dashboardAllBlogTable newchart";
+}
+
+.dashboardAllBlogTable {
+  grid-area: dashboardAllBlogTable;
+}
+
+.newchart {
+  grid-area: newchart;
+}

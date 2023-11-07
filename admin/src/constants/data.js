@@ -1,3 +1,9 @@
+import { AiOutlineDashboard } from "react-icons/ai";
+// import { TbBrandBlogger } from "react-icons/fa";
+import { BiCategory } from "react-icons/bi";
+import { TbAdjustmentsShare, TbBrandBlogger } from "react-icons/tb";
+import { MdOutlineManageAccounts } from "react-icons/md";
+
 export const adminNavLinks = [
   {
     id: "navbloglink",
@@ -20,3 +26,51 @@ export const adminNavLinks = [
     visible: true,
   },
 ];
+export const adminSideBarLinks = [
+  {
+    id: "dashboard",
+    title: "Dashboard",
+    icon: "LuLayoutDashboard",
+    link: "/",
+    visible: true,
+    // whocanAccess:
+  },
+  {
+    id: "blogmanger",
+    title: "Blog Manager",
+    link: "/blogmanager",
+    visible: true,
+  },
+  {
+    id: "categorymanager",
+    title: "Category Manager",
+    link: "/catergorymanager",
+    visible: true,
+  },
+  {
+    id: "socialmanager",
+    title: "Social Manager",
+    link: "/socialmanager",
+    visible: true,
+  },
+  {
+    id: "usermanager",
+    title: "Admin Manager",
+    link: "/usermanager",
+    visible: true,
+  },
+
+  // {
+  //   id: "",
+  //   title: "Admin Manager",
+  //   visible: true,
+  // },
+];
+
+export const AllIcons = {
+  dashboard: <AiOutlineDashboard style={{ width: "25px", height: "25px" }} />,
+  blogmanger: <TbBrandBlogger style={{ width: "25px", height: "25px" }} />,
+  categorymanager: <BiCategory style={{ width: "25px", height: "25px" }} />,
+  socialmanager: <TbAdjustmentsShare style={{ width: "25px", height: "25px" }} />,
+  usermanager: <MdOutlineManageAccounts style={{ width: "25px", height: "25px" }} />,
+};
