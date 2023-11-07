@@ -1,0 +1,8 @@
+.full-height {
+  height: 100vh;
+  overflow: hidden; /* Optional: Prevent scrollbars within the layout */
+}
+.sidebar {
+  background: #fff;
+  box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+}

@@ -1,11 +1,10 @@
 import "./App.css";
 import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
+import Layout from "./components/layout/Layout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { checkisAuthenticated } from "./utils/utils";
-import { updateUserDetails } from "./reducers/adminSlicer";
+import { useSelector } from "react-redux";
+import Dashboard from "./components/dashboard/Dashboard";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.admin.isAuthenticated);
@@ -14,7 +13,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={isAuthenticated ? <Home /> : <Login />} />
+        <Route path="/" element={isAuthenticated ? <Layout /> : <Login />}>
+          <Route index element={<Dashboard />} />
+          {/* <Route path="dashboard" element={< />} /> */}
+        </Route>
       </Routes>
     </BrowserRouter>
   );
