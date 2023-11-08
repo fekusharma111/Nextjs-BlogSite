@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="column2 column">column2</div>
       <div className="column3 column">column3</div>
       <div className="column4 column">column4</div>
-      <div className="column5 column">column5</div>
+      <div className="column5 column"></div>
     </div>
   );
 };
