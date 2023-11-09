@@ -1,14 +1,24 @@
 import React from "react";
 import "./dashboardSection.css";
+import { heroSectionButtonData } from "../../constants/data";
 
-const HeroSection = () => {
+const HeroSection = ({ usedfor }) => {
   return (
-    <div className="heroContainer">
-      <div className="column1 column">column1</div>
-      <div className="column2 column">column2</div>
-      <div className="column3 column">column3</div>
-      <div className="column4 column">column4</div>
-      <div className="column5 column"></div>
+    <div className={`${usedfor}_heroContainer`}>
+      {heroSectionButtonData.map(
+        (item) =>
+          usedfor ===
+          "Dashboard"(
+            <div className={`${item.id} column`} key={item.id}>
+              <div className="cardContent">
+                <h2>{item.title}</h2>
+                <span>{item.desc}</span>
+              </div>
+              <button>{item.buttonText}</button>
+            </div>
+          )
+      )}
+      {usedfor && usedfor === "Dashboard" && <div className="column5 column"></div>}
     </div>
   );
 };

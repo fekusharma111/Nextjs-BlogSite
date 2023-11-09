@@ -74,3 +74,47 @@ export const AllIcons = {
   socialmanager: <TbAdjustmentsShare style={{ width: "25px", height: "25px" }} />,
   usermanager: <MdOutlineManageAccounts style={{ width: "25px", height: "25px" }} />,
 };
+export const heroSectionButtonData = [
+  {
+    id: "createBlog",
+    title: "Set Up Your Blog Instantly",
+    desc: "Creating a blog is just a click away. Instantly launch your blog and be on your way to becoming a recognized voice in your niche.",
+    icon: "GrAdd",
+    buttonText: "Start Writing",
+    dashbordView: true,
+    blogManagerView: true,
+    categoryManagerView: false,
+  },
+  {
+    id: "editBlog",
+    title: "Edit Your Blog Effortlessly",
+    desc: "Polish your blog content with ease. Edit your posts and keep your online presence up-to-date.",
+    icon: "GrEdit",
+    buttonText: "Edit Blog",
+    dashbordView: true,
+    blogManagerView: true,
+    categoryManagerView: false,
+  },
+
+  {
+    id: "createCategory",
+    title: "Create a New Blog Category",
+    desc: "Organize your content with a new category. Enhance the discoverability of your blog posts and keep your site structured.",
+    icon: "GrCategory",
+    buttonText: "Create Category",
+    dashbordView: true,
+    blogManagerView: false,
+    categoryManagerView: true,
+  },
+
+  {
+    id: "editCategory",
+    title: "Edit Blog Category",
+    desc: "Refine and manage your blog categories effortlessly. Edit or update your categories to maintain a well-organized and structured blog.",
+    icon: "GrEditCategory",
+    buttonText: "Edit Category",
+    dashbordView: true,
+    blogManagerView: false,
+    categoryManagerView: true,
+  },
+];

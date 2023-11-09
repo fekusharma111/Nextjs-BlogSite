@@ -6,7 +6,7 @@ import DashboardBlogTable from "../../components/DashboardSection/DashboardBlogT
 const Dashboard = () => {
   return (
     <div>
-      <HeroSection />
+      <HeroSection usedfor="Dashboard" />
       <DashboardTrafficSection />
       <DashboardBlogTable />
     </div>

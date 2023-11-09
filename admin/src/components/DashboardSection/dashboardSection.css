@@ -3,21 +3,37 @@
   background: #fff;
   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
 }
-.heroContainer {
+.Dashboard_heroContainer {
   height: 35vh;
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "column1 column2 column5"
-    "column3 column4 column5";
+    "createBlog editBlog column5"
+    "createCategory editCategory column5";
+}
+.BlogManager_heroContainer {
+  height: 40vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "createBlog createBlog editBlog editBlog";
 }
 
-.column1 {
-  grid-area: column1;
+.createBlog {
+  grid-area: createBlog;
+}
+
+.editBlog {
+  grid-area: editBlog;
+}
+
+.createBlog {
+  grid-area: createBlog;
   background-color: rgb(57, 169, 165);
   color: rgb(255, 255, 255);
   overflow: hidden;
@@ -25,7 +41,7 @@
   animation-name: column1animation;
   animation-duration: 1s;
 }
-.column1.column::before {
+.createBlog.column::before {
   content: "";
   position: absolute;
   width: 210px;
@@ -36,7 +52,7 @@
   right: -15px;
   opacity: 0.5;
 }
-.column1.column::after {
+.createBlog.column::after {
   content: "";
   position: absolute;
   width: 210px;
@@ -46,8 +62,8 @@
   top: -85px;
   right: -95px;
 }
-.column2 {
-  grid-area: column2;
+.editBlog {
+  grid-area: editBlog;
   background-color: rgb(20, 56, 61);
   color: rgb(255, 255, 255);
   overflow: hidden;
@@ -55,7 +71,7 @@
   animation-name: column2animation;
   animation-duration: 1s;
 }
-.column2.column::before {
+.editBlog.column::before {
   content: "";
   position: absolute;
   z-index: 1;
@@ -67,7 +83,7 @@
   right: -15px;
   opacity: 0.5;
 }
-.column2.column::after {
+.editBlog.column::after {
   content: "";
   position: absolute;
   width: 210px;
@@ -79,8 +95,8 @@
   right: -95px;
 }
 
-.column3 {
-  grid-area: column3;
+.createCategory {
+  grid-area: createCategory;
   background-color: rgb(84, 110, 122);
   color: rgb(255, 255, 255);
   overflow: hidden;
@@ -88,7 +104,7 @@
   animation-name: column3animation;
   animation-duration: 1s;
 }
-.column3::before {
+.createCategory::before {
   content: "";
   position: absolute;
   z-index: 1;
@@ -100,7 +116,7 @@
   right: -15px;
   opacity: 0.5;
 }
-.column3::after {
+.createCategory::after {
   content: "";
   position: absolute;
   width: 210px;
@@ -112,8 +128,8 @@
   right: -95px;
 }
 
-.column4 {
-  grid-area: column4;
+.editCategory {
+  grid-area: editCategory;
   background-color: rgb(30, 136, 229);
   color: rgb(255, 255, 255);
   overflow: hidden;
@@ -121,7 +137,7 @@
   animation-name: column4animation;
   animation-duration: 1s;
 }
-.column4::before {
+.editCategory::before {
   content: "";
   position: absolute;
   z-index: 1;
@@ -133,7 +149,7 @@
   right: -15px;
   opacity: 0.5;
 }
-.column4::after {
+.editCategory::after {
   content: "";
   position: absolute;
   width: 210px;
@@ -148,7 +164,7 @@
   grid-area: column5;
   /* max-height: 100%; */
 }
-.heroContainer > * {
+.Dashboard_heroContainer > * {
   margin: 10px;
 }
 
