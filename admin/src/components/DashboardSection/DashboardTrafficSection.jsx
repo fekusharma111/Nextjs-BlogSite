@@ -47,10 +47,10 @@ const DashboardTrafficSection = () => {
   return (
     <div className="dashboardTrafficSectionContainer">
       <div className="circleChart column">
-        <Doughnut data={dougnoutData} />
+        <Doughnut data={dougnoutData} style={{ margin: "auto" }} />
       </div>
       <div className="trafficsource column">
-        <Bar options={Baroptions} data={Bardata} />
+        <Bar options={Baroptions} data={Bardata} style={{ margin: "auto" }} />
       </div>
     </div>
   );

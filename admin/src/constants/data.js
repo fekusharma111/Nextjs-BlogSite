@@ -95,6 +95,15 @@ export const heroSectionButtonData = [
     blogManagerView: true,
     categoryManagerView: false,
   },
+  {
+    id: "deleteBlog",
+    title: "Delete Your Blog Effortlessly",
+    desc: "Polish your blog content with ease. Edit your posts and keep your online presence up-to-date.",
+    buttonText: "Delete Blog",
+    dashbordView: false,
+    blogManagerView: true,
+    categoryManagerView: false,
+  },
 
   {
     id: "createCategory",
@@ -114,6 +123,15 @@ export const heroSectionButtonData = [
     icon: "GrEditCategory",
     buttonText: "Edit Category",
     dashbordView: true,
+    blogManagerView: false,
+    categoryManagerView: true,
+  },
+  {
+    id: "deleteCategory",
+    title: "Delete Your Category Effortlessly",
+    desc: "Polish your blog content with ease. Edit your posts and keep your online presence up-to-date.",
+    buttonText: "Delete Category",
+    dashbordView: false,
     blogManagerView: false,
     categoryManagerView: true,
   },

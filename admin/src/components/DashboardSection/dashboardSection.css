@@ -1,7 +1,8 @@
 .column {
   border-radius: 10px;
   background: #fff;
-  box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08); */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 }
 .Dashboard_heroContainer {
   height: 35vh;
@@ -14,7 +15,7 @@
     "createBlog editBlog column5"
     "createCategory editCategory column5";
 }
-.BlogManager_heroContainer {
+/* .BlogManager_heroContainer {
   height: 40vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -22,6 +23,24 @@
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas: "createBlog createBlog editBlog editBlog";
+} */
+.BlogManager_heroContainer {
+  height: 20vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "createBlog editBlog deleteBlog";
+}
+.CategoryManager_heroContainer {
+  height: 20vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "createCategory editCategory deleteCategory";
 }
 
 .createBlog {
@@ -32,16 +51,41 @@
   grid-area: editBlog;
 }
 
-.createBlog {
-  grid-area: createBlog;
-  background-color: rgb(57, 169, 165);
-  color: rgb(255, 255, 255);
+/* .CategoryManager_heroContainer {
+  height: 40vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "createCategory createCategory editCategory editCategory";
+} */
+.deleteBlog {
+  grid-area: deleteBlog;
   overflow: hidden;
   position: relative;
   animation-name: column1animation;
   animation-duration: 1s;
 }
-.createBlog.column::before {
+.createBlog {
+  grid-area: createBlog;
+}
+
+.editBlog {
+  grid-area: editBlog;
+}
+
+.createBlog {
+  grid-area: createBlog;
+  /* background-color: rgb(57, 169, 165);
+  color: rgb(255, 255, 255); */
+  overflow: hidden;
+  position: relative;
+  animation-name: column1animation;
+  animation-duration: 1s;
+}
+
+/* .createBlog.column::before {
   content: "";
   position: absolute;
   width: 210px;
@@ -61,50 +105,60 @@
   border-radius: 50%;
   top: -85px;
   right: -95px;
-}
+} */
 .editBlog {
   grid-area: editBlog;
-  background-color: rgb(20, 56, 61);
-  color: rgb(255, 255, 255);
+  /* background-color: rgb(20, 56, 61); */
+  /* background-color: rgb(57, 169, 165);
+  color: rgb(255, 255, 255); */
   overflow: hidden;
   position: relative;
   animation-name: column2animation;
   animation-duration: 1s;
 }
-.editBlog.column::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  width: 210px;
-  height: 210px;
-  background: rgb(13, 40, 44);
-  border-radius: 50%;
-  top: -125px;
-  right: -15px;
-  opacity: 0.5;
-}
-.editBlog.column::after {
-  content: "";
-  position: absolute;
-  width: 210px;
-  height: 210px;
-  background: rgb(13, 40, 44);
-  border-radius: 50%;
-  z-index: 1;
-  top: -85px;
-  right: -95px;
-}
-
-.createCategory {
-  grid-area: createCategory;
-  background-color: rgb(84, 110, 122);
-  color: rgb(255, 255, 255);
+.deleteCategory {
+  grid-area: deleteCategory;
   overflow: hidden;
   position: relative;
   animation-name: column3animation;
   animation-duration: 1s;
 }
-.createCategory::before {
+/* .editBlog.column::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 210px;
+  height: 210px;
+  /* background: rgb(13, 40, 44); */
+/* background: rgb(41, 151, 146);
+  border-radius: 50%;
+  top: -125px;
+  right: -15px;
+  opacity: 0.5;
+} */
+/* .editBlog.column::after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  /* background: rgb(13, 40, 44); */
+/* background: rgb(41, 151, 146);
+  border-radius: 50%;
+  z-index: 1;
+  top: -85px;
+  right: -95px;
+}  */
+
+.createCategory {
+  grid-area: createCategory;
+  /* background-color: rgb(84, 110, 122);
+  color: rgb(255, 255, 255); */
+  overflow: hidden;
+  position: relative;
+  animation-name: column3animation;
+  animation-duration: 1s;
+}
+/* .createCategory::before {
   content: "";
   position: absolute;
   z-index: 1;
@@ -126,18 +180,18 @@
   z-index: 1;
   top: -85px;
   right: -95px;
-}
+} */
 
 .editCategory {
   grid-area: editCategory;
-  background-color: rgb(30, 136, 229);
-  color: rgb(255, 255, 255);
+  /* background-color: rgb(30, 136, 229); */
+  /* color: rgb(255, 255, 255); */
   overflow: hidden;
   position: relative;
   animation-name: column4animation;
   animation-duration: 1s;
 }
-.editCategory::before {
+/* .editCategory::before {
   content: "";
   position: absolute;
   z-index: 1;
@@ -159,12 +213,18 @@
   z-index: 1;
   top: -85px;
   right: -95px;
-}
+} */
 .column5 {
   grid-area: column5;
   /* max-height: 100%; */
 }
 .Dashboard_heroContainer > * {
+  margin: 10px;
+}
+.BlogManager_heroContainer > * {
+  margin: 10px;
+}
+.CategoryManager_heroContainer > * {
   margin: 10px;
 }
 
@@ -203,9 +263,33 @@
     "dashboardAllBlogTable dashboardAllBlogTable newchart"
     "dashboardAllBlogTable dashboardAllBlogTable newchart";
 }
-
+.cardButton {
+  position: absolute;
+  right: 15px;
+  z-index: 10;
+  bottom: 15px;
+  border-radius: 20px !important;
+  border: 1px solid #009595;
+  background-color: #009595;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  text-align: center;
+  /* font-family: poppins, sans-serif !important; */
+}
 .dashboardAllBlogTable {
   grid-area: dashboardAllBlogTable;
+}
+.cardContent {
+  /* font-family: poppins, sans-serif !important; */
+}
+.cardContent span {
+  color: #858383;
+  font-size: 14px;
 }
 
 .newchart {
