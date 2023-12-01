@@ -1,8 +1,16 @@
 import React from "react";
 import "./dashboardSection.css";
 import { heroSectionButtonData } from "../../constants/data";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = ({ usedfor }) => {
+  const navigate = useNavigate();
+  const handleHeroBtn = (data) => {
+    console.log("heroBtnClick", data);
+    if (data.id === "createCategory") {
+      navigate("/catergorymanager/create");
+    }
+  };
   return (
     <div className={`${usedfor}_heroContainer`}>
       {heroSectionButtonData.map((item) =>
@@ -14,7 +22,14 @@ const HeroSection = ({ usedfor }) => {
               <h2>{item.title}</h2>
               <span>{item.desc}</span>
             </div>
-            <button className="cardButton">{item.buttonText}</button>
+            <button
+              className="cardButton"
+              onClick={() => {
+                handleHeroBtn(item);
+              }}
+            >
+              {item.buttonText}
+            </button>
           </div>
         ) : null
       )}

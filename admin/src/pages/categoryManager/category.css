@@ -1,0 +1,50 @@
+/* AddCategory.css */
+
+.add-category-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  /* font-family: 'Your Custom Font', sans-serif; */
+}
+
+/* Style for the placeholder text */
+input::placeholder,
+textarea::placeholder {
+  /* font-family: 'Your Custom Font', sans-serif; */
+}
+.button-group {
+  margin-top: 15px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
