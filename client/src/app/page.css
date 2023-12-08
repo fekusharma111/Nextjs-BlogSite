@@ -1,0 +1,9 @@
+.PAGEcontainer {
+    max-width:1280px;
+}
+.blog_items_listing{
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}

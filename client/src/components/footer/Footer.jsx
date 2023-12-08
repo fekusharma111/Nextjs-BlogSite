@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./footer.module.css";
+import  "./footer.css";
 import FooterNav from "./FooterNav";
 import NewsLetter from "./NewsLetter";
 
 const Footer = () => {
   return (
-    <div className={styles.container}>
+    <div className="footercontainer">
       <NewsLetter />
       <FooterNav />
     </div>

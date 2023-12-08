@@ -1,15 +1,15 @@
 import React from "react";
-import styles from "./page.module.css";
+import "./page.css";
 import PagesHeroSection from "@/components/pagesHeroSection/pagesHeroSection";
 
 const Contact = () => {
   return (
-    <div className={styles.container}>
+    <div >
       <PagesHeroSection pageName="CONTACT US" />
 
-      <h1 className={styles.title}>Lets Keep in Touch</h1>
-      <div className={styles.content}>
-        <div className={styles.imgContainer}>
+      <h1 >Lets Keep in Touch</h1>
+      <div >
+        <div >
           {/* <Image
             src="/contact.png"
             alt=""
@@ -17,11 +17,11 @@ const Contact = () => {
             className={styles.image}
           /> */}
         </div>
-        <form className={styles.form}>
-          <input type="text" placeholder="name" className={styles.input} />
-          <input type="text" placeholder="email" className={styles.input} />
+        <form >
+          <input type="text" placeholder="name" />
+          <input type="text" placeholder="email"  />
           <textarea
-            className={styles.textArea}
+            // className={styles.textArea}
             placeholder="message"
             cols="30"
             rows="10"

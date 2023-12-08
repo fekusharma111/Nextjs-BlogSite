@@ -1,13 +1,20 @@
 import React from "react";
-import styles from "./heroSection.module.css";
+import "./heroSection.css";
 
 const HeroSection = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.headerContent}>
-        <h1 className={styles.title}>Where Stories Meet Insights</h1>
+    <div className="herocontainer">
+      <div className="container">
+         <div className="row">
+        <div className="col-md-6 herotitle_head">
+        <h1 className="herotitle">Where Stories Meet Insights</h1>
       </div>
-      <div className={styles.headerImage}></div>
+      <div className="col-md-6">
+      <div className="headerImage"><img src="home_banner.svg"/></div>
+      </div>
+      </div>
+      </div>
+  
     </div>
   );
 };

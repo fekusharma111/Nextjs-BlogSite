@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./page.module.css";
+import "./page.css";
 
 const Categories = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.item}>
+    <div >
+      <div className="item">
         <h2>Featured Categories</h2>
-        <div className={styles.itemContainer}>
+        <div className="itemContainer">
           <div>
             <h3>Technology</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat voluptatibus possimus quos libero obcaecati magni.</p>
@@ -17,9 +17,9 @@ const Categories = () => {
           </div>
         </div>
       </div>
-      <div className={styles.item}>
+      <div className="item">
         <h2>All Categories</h2>
-        <div className={styles.itemContainer}>
+        <div className="itemContainer">
           <div>
             <h3>Technology</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat voluptatibus possimus quos libero obcaecati magni.</p>

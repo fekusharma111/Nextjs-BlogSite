@@ -1,10 +1,10 @@
 import PagesHeroSection from "@/components/pagesHeroSection/pagesHeroSection";
 import React from "react";
-import styles from "./page.module.css";
+import "./page.css";
 
 const Sitemap = () => {
   return (
-    <div className={styles.container}>
+    <div >
       <PagesHeroSection pageName="SITEMAP" />
       <h3>Sitemap</h3>
     </div>

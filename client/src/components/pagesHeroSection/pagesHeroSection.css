@@ -1,11 +1,11 @@
-.container {
+.pageherocontainer {
   background: var(--PrimaryTeal);
   height: calc(100vh - 70vh);
   color: var(--lightTextColor);
   position: relative;
 }
 
-.container h1 {
+.pageherocontainer h1 {
   position: absolute;
   top: 50%;
   left: 50%;

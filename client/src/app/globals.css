@@ -20,5 +20,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
-.container {
+/* .container {
+  width: 100%;
 }
+.innerContainer{
+  max-width: 1280px;
+} */
