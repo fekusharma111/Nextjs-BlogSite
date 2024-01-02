@@ -1,28 +1,18 @@
 import User from "../models/UserSchema.js";
 import jwt from "jsonwebtoken";
-import CryptoJS from "crypto-js";
+
 import RefreshTokenSchema from "../models/RefreshToken.js";
 import logger from "../utils/logger.js";
+import {
+  JWT_ACCESS_KEY,
+  JWT_REFRESH_KEY,
+  CRYPTO_ENCRYPTION_KEY,
+  cryptoEncryption,
+  cryptoDecryption,
+  generateAccessToken,
+  generateRefreshToken,
+} from "../utils/helper.js";
 
-const JWTACCESSKEY = "JWTAccessSecretKey";
-const JWTREFRESHKEY = "JWTRefreshSecretKey";
-const CRYPTOENCRYPTIONKEY = "CryptoEncryptionKey";
-
-const cryptoEncryption = (rawData) => {
-  return CryptoJS.AES.encrypt(JSON.stringify(rawData), CRYPTOENCRYPTIONKEY).toString();
-};
-const cryptodecryption = (encryptedData) => {
-  console.log("decrypted data here", encryptedData, CryptoJS.AES.decrypt(encryptedData.secureData, CRYPTOENCRYPTIONKEY));
-  return JSON.parse(CryptoJS.AES.decrypt(encryptedData.secureData, CRYPTOENCRYPTIONKEY).toString(CryptoJS.enc.Utf8));
-};
-const generateAccessToken = (rawData) => {
-  return jwt.sign({ secureData: rawData }, JWTACCESSKEY, {
-    expiresIn: "15s",
-  });
-};
-const generateRefreshToken = (rawData) => {
-  return jwt.sign({ secureData: rawData }, JWTREFRESHKEY);
-};
 export const refreshToken = async (req, res) => {
   const refreshToken = req.body.token;
   if (!refreshToken) {
@@ -34,7 +24,7 @@ export const refreshToken = async (req, res) => {
     .then((documents) => {
       if (documents.length > 0) {
         console.log("Found documents:", documents);
-        jwt.verify(refreshToken, JWTREFRESHKEY, async (err, result) => {
+        jwt.verify(refreshToken, JWT_REFRESH_KEY, async (err, result) => {
           err && console.log(err);
           await RefreshTokenSchema.deleteMany({ token: refreshToken })
             .exec()
@@ -45,13 +35,13 @@ export const refreshToken = async (req, res) => {
               console.log("error deleting refresh token", err);
             });
           console.log("result here", result);
-          let decryptedData = cryptodecryption(result);
+          let decryptedData = cryptoDecryption(result);
           console.log("decrypted data", decryptedData);
           let encryptedData = cryptoEncryption(decryptedData);
           const newAccessToken = generateAccessToken(encryptedData);
           const newRefreshToken = generateRefreshToken(encryptedData);
 
-          // console.log(JSON.parse(CryptoJS.AES.decrypt(result.secureData, CRYPTOENCRYPTIONKEY).toString(CryptoJS.enc.Utf8)));
+          // console.log(JSON.parse(CryptoJS.AES.decrypt(result.secureData, CRYPTO_ENCRYPTION_KEY).toString(CryptoJS.enc.Utf8)));
           let newToken = new RefreshTokenSchema({
             userId: decryptedData._id,
             token: newRefreshToken,
@@ -69,7 +59,7 @@ export const refreshToken = async (req, res) => {
     .catch((err) => {
       console.error("Error:", err);
     });
-  // let id = JSON.parse(CryptoJS.AES.decrypt(refreshToken, "CryptoEncryptionKey").toString());
+  // let id = JSON.parse(CryptoJS.AES.decrypt(refreshToken, "CRYPTO_ENCRYPTION_KEY").toString());
 
   // RefreshTokenSchema.findById()
 };
@@ -78,12 +68,12 @@ export const verifyJWTToken = async (req, res, next) => {
   if (authHeader) {
     const token = authHeader.split(" ")[1];
 
-    jwt.verify(token, JWTACCESSKEY, (err, user) => {
+    jwt.verify(token, JWT_ACCESS_KEY, (err, user) => {
       if (err) {
         return res.status(403).json("Token is not valid!");
       }
-
-      req.user = user;
+      let decryptedData = cryptoDecryption(user);
+      req.user = decryptedData;
       console.log("Verified", req.user);
       next();
     });
@@ -92,7 +82,7 @@ export const verifyJWTToken = async (req, res, next) => {
   }
 };
 export const validatePageRefreshLogin = async (req, res) => {
-  let decryptedData = cryptodecryption(req.user);
+  let decryptedData = req.user;
   console.log("after verified", decryptedData);
   // let dbUser = await User.findById(decryptedData._id).exec();
   User.findByIdAndUpdate(decryptedData._id, { lastloginUpdateTime: new Date().getTime() }, { new: true })

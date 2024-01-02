@@ -20,6 +20,7 @@ const Sidebar = () => {
             item.visible && (
               <Link
                 to={item.link}
+                key={item.id}
                 className={`d-flex align-items-center sidelink ${item.id === selectedLink?.id ? "active" : ""}`}
                 onClick={() => setSelectedLink(item)}
               >
