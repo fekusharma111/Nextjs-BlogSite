@@ -24,3 +24,14 @@ export const createCategory = async (req, res) => {
     res.status(400).json({ message: "Error while creating category", error: error });
   }
 };
+
+export const getAllCategories = async (req, res) => {
+  try {
+    let allCategories = await createCategoryModel.find({});
+    console.log("getting all categories", allCategories);
+    res.status(200).json(allCategories);
+  } catch (error) {
+    console.error("Error creating category:", error);
+    res.status(400).json({ message: "Error while getting category", error: error });
+  }
+};

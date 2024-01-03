@@ -3,4 +3,5 @@ export const SERVICE_URLs = {
   refreshToken: { url: "/refreshToken", method: "POST" },
   validatePageRefreshLogin: { url: "/validatePageRefreshLogin", method: "GET" },
   createCategory: { url: "/createCategory", method: "POST" },
+  getAllCategories: { url: "/getAllCategories", method: "GET" },
 };
