@@ -67,10 +67,15 @@ button:hover {
   transition: border 0.4s ease;
 }
 .innerBox:hover {
-  border-color: #009595;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border-color: #d4d4d4;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
 }
 .cattitle {
 }
 .catHeader {
+  font-weight: 700;
+}
+.bg-light {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }

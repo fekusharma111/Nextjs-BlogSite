@@ -52,17 +52,18 @@ const CategoryManager = () => {
       <div className="outerBox">
         {allCategories.length > 0 && (
           <>
-            <div className="catHeader">
-              <div className="cattitle"> Category Name</div>
-              <div className="cattitle"> Trending Status</div>
-              <div className="cattitle"> Created Date</div>
-              <div className="cattitle"> Description</div>
+            <div className="catHeader row">
+              <div className="cattitle col-3"> Category Name</div>
+              <div className="cattitle col-3"> Trending Status</div>
+              <div className="cattitle col-3"> Created Date</div>
+              <div className="cattitle col-3"> Description</div>
             </div>
             {allCategories.map((category, index) => (
-              <div className="innerBox" key={index}>
-                <span>{category.categoryName}</span>
-                <span>{category.isTrending ? "Trending" : "Not trending"}</span>
-                <span>{parseDate(category.createdAt)}</span>
+              <div className="innerBox row bg-light" key={index}>
+                <span className="col-3">{category.categoryName}</span>
+                <span className="col-3">{category.isTrending ? "Trending" : "Not trending"}</span>
+                <span className="col-3">{parseDate(category.createdAt)}</span>
+                <span className="col-3">{category.categoryDesc ? category.categoryDesc : "No description"}</span>
               </div>
             ))}
           </>
