@@ -23,7 +23,7 @@ const HeroSection = ({ usedfor }) => {
               <span>{item.desc}</span>
             </div>
             <button
-              className="cardButton"
+              className="cardButton "
               onClick={() => {
                 handleHeroBtn(item);
               }}

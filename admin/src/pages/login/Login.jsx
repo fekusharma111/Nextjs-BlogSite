@@ -81,7 +81,7 @@ const Login = () => {
             <input name="userName" type="text" placeholder="Username" value={inputState.userName} onChange={(e) => handleInputChange(e)} />
             <input name="password" type="password" placeholder="Password" value={inputState.password} onChange={(e) => handleInputChange(e)} />
             {error && <div style={{ color: "red" }}>{error}</div>}
-            <button onClick={() => handleLogin()} style={{ cursor: loading ? "not-allowed" : "pointer" }}>
+            <button className="loginbutton" onClick={() => handleLogin()} style={{ cursor: loading ? "not-allowed" : "pointer" }}>
               {loading ? <div>Loading...</div> : <div>Sign In</div>}
             </button>
           </div>

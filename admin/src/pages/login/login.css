@@ -62,7 +62,7 @@ input {
 input:focus {
   outline: none;
 }
-button {
+.loginbutton {
   border-radius: 20px !important;
   border: 1px solid #008080;
   background-color: #008080;
@@ -76,15 +76,15 @@ button {
   text-align: center;
 }
 
-button:active {
+.loginbutton:active {
   transform: scale(0.95);
 }
 
-button:focus {
+.loginbutton:focus {
   outline: none;
 }
 
-button.ghost {
+.loginbutton.ghost {
   background-color: transparent;
   border-color: #ffffff;
 }

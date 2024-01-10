@@ -118,6 +118,7 @@ const CreateCategory = () => {
 
         <div className="button-group">
           <button
+            className="createcatbtn"
             type="button"
             onClick={() => {
               submitNewCategory();
@@ -126,6 +127,7 @@ const CreateCategory = () => {
             {loading ? <>Saving...</> : <>Save</>}
           </button>
           <button
+            categoryName="createcatbtn"
             type="button"
             onClick={() => {
               resetCategoryField();

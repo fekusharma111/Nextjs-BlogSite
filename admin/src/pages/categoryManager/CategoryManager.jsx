@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import HeroSection from "../../components/DashboardSection/HeroSection";
 import { API } from "../../service/axiosInstance";
+import { FaEdit } from "react-icons/fa";
+import { MdOutlineDelete } from "react-icons/md";
 
 const CategoryManager = () => {
   const [loading, setLoading] = useState(false);
@@ -63,7 +65,17 @@ const CategoryManager = () => {
                 <span className="col-3">{category.categoryName}</span>
                 <span className="col-3">{category.isTrending ? "Trending" : "Not trending"}</span>
                 <span className="col-3">{parseDate(category.createdAt)}</span>
-                <span className="col-3">{category.categoryDesc ? category.categoryDesc : "No description"}</span>
+                <div className="col-3 d-flex justify-content-between">
+                  <span>{category.categoryDesc ? category.categoryDesc : "No description"}</span>
+                  <div className="iconBtn">
+                    <button className="iconbutton ">
+                      <FaEdit />
+                    </button>
+                    <button className="iconbutton ">
+                      <MdOutlineDelete />
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
           </>
