@@ -4,6 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import { toast } from "react-toastify";
 import CategoryModal from "./CategoryModal";
+import "./category.css";
 
 const CategoryManager = () => {
   const [loading, setLoading] = useState(false);
