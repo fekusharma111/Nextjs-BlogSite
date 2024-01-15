@@ -3,6 +3,7 @@ import Navbar from "../navbar/Navbar";
 import Sidebar from "../sidebar/Sidebar";
 import { Outlet } from "react-router-dom";
 import "./layout.css";
+import { Bounce, ToastContainer } from "react-toastify";
 
 const Layout = () => {
   return (
@@ -17,6 +18,19 @@ const Layout = () => {
             <Outlet />
           </div>
         </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+        />
       </div>
     </div>
   );

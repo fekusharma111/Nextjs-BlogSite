@@ -94,3 +94,46 @@ textarea::placeholder {
   height: 40px;
   transition: all 0.1s ease 0s;
 }
+
+.custom-modal {
+  /* z-index: -10; */
+  opacity: 0; /* Set initial opacity to 0 */
+  transition: opacity 0.3s ease-in-out; /* Add a transition for opacity */
+}
+
+.custom-modal.show {
+  opacity: 1; /* When the modal has the 'show' class, set opacity to 1 */
+  z-index: 10;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-background {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  opacity: 0; /* Set initial opacity to 0 */
+  transform: translateY(-20px); /* Move the modal up initially */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transitions for opacity and transform */
+}
+
+.custom-modal.show .modal-background {
+  opacity: 1; /* When the modal has the 'show' class, set opacity to 1 */
+  transform: translateY(0); /* Move the modal back to its original position */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}

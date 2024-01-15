@@ -4,4 +4,5 @@ export const SERVICE_URLs = {
   validatePageRefreshLogin: { url: "/validatePageRefreshLogin", method: "GET" },
   createCategory: { url: "/createCategory", method: "POST" },
   getAllCategories: { url: "/getAllCategories", method: "GET" },
+  updateCategory: { url: "/updateCategory", method: "POST" },
 };

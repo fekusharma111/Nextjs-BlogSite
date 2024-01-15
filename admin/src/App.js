@@ -10,8 +10,7 @@ import SocialManager from "./pages/socialManager/SocialManager";
 import UserManager from "./pages/userManager/UserManager";
 import CreateBlog from "./pages/blogManager/CreateBlog";
 import EditBlog from "./pages/blogManager/EditBlog";
-import CreateCategory from "./pages/categoryManager/CreateCategory";
-import EditCategory from "./pages/categoryManager/EditCategory";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.admin.isAuthenticated);
@@ -26,8 +25,6 @@ function App() {
           <Route path="/blogmanager/create" element={<CreateBlog />} />
           <Route path="/blogmanager/edit/:id" element={<EditBlog />} />
           <Route path="/catergorymanager" element={<CategoryManager />} />
-          <Route path="/catergorymanager/create" element={<CreateCategory />} />
-          <Route path="/catergorymanager/edit/:id" element={<EditCategory />} />
           <Route path="/socialmanager" element={<SocialManager />} />
           <Route path="/usermanager" element={<UserManager />} />
         </Route>

@@ -23,20 +23,20 @@ export const refreshToken = async (req, res) => {
     .exec()
     .then((documents) => {
       if (documents.length > 0) {
-        console.log("Found documents:", documents);
+        // console.log("Found documents:", documents);
         jwt.verify(refreshToken, JWT_REFRESH_KEY, async (err, result) => {
           err && console.log(err);
           await RefreshTokenSchema.deleteMany({ token: refreshToken })
             .exec()
             .then(() => {
-              console.log("deleted refresh token successfully");
+              // console.log("deleted refresh token successfully");
             })
             .catch((err) => {
               console.log("error deleting refresh token", err);
             });
-          console.log("result here", result);
+          // console.log("result here", result);
           let decryptedData = cryptoDecryption(result);
-          console.log("decrypted data", decryptedData);
+          // console.log("decrypted data", decryptedData);
           let encryptedData = cryptoEncryption(decryptedData);
           const newAccessToken = generateAccessToken(encryptedData);
           const newRefreshToken = generateRefreshToken(encryptedData);
@@ -47,7 +47,7 @@ export const refreshToken = async (req, res) => {
             token: newRefreshToken,
           });
           await newToken.save();
-          console.log("here now");
+          // console.log("here now");
           setTokenCookies(res, newAccessToken, "accessToken");
           setTokenCookies(res, newRefreshToken, "refreshToken");
           res.status(200).json({ message: "success" });
@@ -64,6 +64,7 @@ export const refreshToken = async (req, res) => {
   // RefreshTokenSchema.findById()
 };
 export const verifyJWTToken = async (req, res, next) => {
+  // console.log("Verify token is not valid!", req.headers.authorization);
   const authHeader = req.headers.authorization;
   if (authHeader) {
     const token = authHeader.split(" ")[1];
@@ -83,12 +84,12 @@ export const verifyJWTToken = async (req, res, next) => {
 };
 export const validatePageRefreshLogin = async (req, res) => {
   let decryptedData = req.user;
-  console.log("after verified", decryptedData);
+  // console.log("after verified", decryptedData);
   // let dbUser = await User.findById(decryptedData._id).exec();
   User.findByIdAndUpdate(decryptedData._id, { lastloginUpdateTime: new Date().getTime() }, { new: true })
     .exec()
     .then((document) => {
-      console.log("lastloginupdatetime is updated of user", document);
+      // console.log("lastloginupdatetime is updated of user", document);
       res.status(200).json({ message: "success" });
     })
     .catch((err) => {

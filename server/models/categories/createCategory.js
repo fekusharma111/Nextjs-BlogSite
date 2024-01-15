@@ -16,10 +16,25 @@ const createCategorySchema = mongoose.Schema(
     isTrending: {
       type: Boolean,
     },
+    activeStatus: {
+      type: Boolean,
+    },
     createdBy: {
       type: String,
       required: true,
     },
+    updatedBy: [
+      {
+        updaterName: {
+          type: String,
+          required: true,
+        },
+        updatedAt: {
+          type: Date,
+          required: true,
+        },
+      },
+    ],
   },
   {
     timestamps: true,

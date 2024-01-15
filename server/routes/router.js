@@ -1,6 +1,6 @@
 import express from "express";
 import { loginUser, refreshToken, validatePageRefreshLogin, verifyJWTToken } from "../controller/authController.js";
-import { createCategory, getAllCategories } from "../controller/blogController.js";
+import { createCategory, getAllActiveCategories, updateCategoryById } from "../controller/blogController.js";
 
 const router = express.Router();
 
@@ -9,6 +9,7 @@ router.post("/refreshToken", refreshToken);
 router.get("/validatePageRefreshLogin", verifyJWTToken, validatePageRefreshLogin);
 
 router.post("/createCategory", verifyJWTToken, createCategory);
-router.get("/getAllCategories", getAllCategories);
+router.get("/getAllCategories", getAllActiveCategories);
+router.post("/updateCategory", verifyJWTToken, updateCategoryById);
 
 export default router;

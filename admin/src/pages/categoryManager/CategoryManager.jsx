@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import HeroSection from "../../components/DashboardSection/HeroSection";
 import { API } from "../../service/axiosInstance";
 import { FaEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
+import { toast } from "react-toastify";
+import CategoryModal from "./CategoryModal";
 
 const CategoryManager = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [nodata, setNoData] = useState(false);
   const [allCategories, setAllCategories] = useState([]);
+  const [categoryModalData, setCategoryModalData] = useState({ status: false, data: null });
 
   useEffect(() => {
     fetchData();
@@ -48,9 +50,43 @@ const CategoryManager = () => {
     const formattedDate = dateObject.toLocaleDateString("en-US", { month: "short", day: "2-digit", year: "numeric" });
     return formattedDate;
   };
+  const editCategory = (category) => {
+    setCategoryModalData({ status: true, usedFor: "editCategory", data: category });
+  };
+  const deleteCategoryTempById = async (category) => {
+    try {
+      if (window.confirm("Are you sure you want to delete this category?") == true) {
+        const response = await toast.promise(API.updateCategory({ ...category, activeStatus: false }, true), {
+          pending: "Deleting category...",
+          success: "Category Deleted👌",
+          error: "Error deleting Category!🤯",
+        });
+        if (response.isSuccess) {
+          const updatedCategoryData = JSON.parse(response.data);
+
+          setAllCategories((prevCategories) => prevCategories.filter((singlecategory) => singlecategory._id !== updatedCategoryData._id));
+
+          console.log("deleted documents", JSON.parse(response.data));
+        }
+        console.log("deleting categories", response);
+      } else {
+      }
+    } catch (error) {}
+  };
   return (
     <div>
-      <HeroSection usedfor="CategoryManager" />
+      <button
+        className="btn btn-primary"
+        onClick={() => {
+          setCategoryModalData({
+            status: true,
+            usedFor: "createCategory",
+            data: { categoryName: "", categoryId: "", categoryDesc: "", isTrending: false },
+          });
+        }}
+      >
+        Create new Category
+      </button>
       <div className="outerBox">
         {allCategories.length > 0 && (
           <>
@@ -68,10 +104,20 @@ const CategoryManager = () => {
                 <div className="col-3 d-flex justify-content-between">
                   <span>{category.categoryDesc ? category.categoryDesc : "No description"}</span>
                   <div className="iconBtn">
-                    <button className="iconbutton ">
+                    <button
+                      className="iconbutton "
+                      onClick={() => {
+                        editCategory(category);
+                      }}
+                    >
                       <FaEdit />
                     </button>
-                    <button className="iconbutton ">
+                    <button
+                      className="iconbutton "
+                      onClick={() => {
+                        deleteCategoryTempById(category);
+                      }}
+                    >
                       <MdOutlineDelete />
                     </button>
                   </div>
@@ -84,6 +130,8 @@ const CategoryManager = () => {
       {loading && <>Loading...</>}
       {nodata && !loading && <small className="text-secondary">-- No data found --</small>}
       {error && !loading && <small className="text-danger">{error}</small>}
+
+      <CategoryModal categoryModalData={categoryModalData} setCategoryModalData={setCategoryModalData} setAllCategories={setAllCategories} />
     </div>
   );
 };

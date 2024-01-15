@@ -21,7 +21,7 @@ export const cryptoDecryption = (encryptedData) => {
   try {
     const decryptedBytes = ENCRYPTION_ALGORITHM.decrypt(encryptedData.secureData, CRYPTO_ENCRYPTION_KEY);
     const decryptedData = JSON.parse(decryptedBytes.toString(CryptoJS.enc.Utf8));
-    console.log("Decrypted data:", decryptedData);
+    // console.log("Decrypted data:", decryptedData);
     return decryptedData;
   } catch (error) {
     console.error("Decryption failed:", error);
