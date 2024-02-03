@@ -11,6 +11,7 @@ import UserManager from "./pages/userManager/UserManager";
 import CreateBlog from "./pages/blogManager/CreateBlog";
 import EditBlog from "./pages/blogManager/EditBlog";
 import "react-toastify/dist/ReactToastify.css";
+import "react-quill/dist/quill.snow.css";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.admin.isAuthenticated);

@@ -7,6 +7,7 @@ const HeroSection = ({ usedfor }) => {
   const navigate = useNavigate();
   const handleHeroBtn = (data) => {
     console.log("heroBtnClick", data);
+    data.link && navigate(data.link);
   };
   return (
     <div className={`${usedfor}_heroContainer`}>

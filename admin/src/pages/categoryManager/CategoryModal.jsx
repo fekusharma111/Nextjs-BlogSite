@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 const CategoryModal = ({ categoryModalData, setCategoryModalData, setAllCategories }) => {
   const [error, setError] = useState({ status: false, message: null });
   const [loading, setLoading] = useState(false);
+
   const onValueChange = (e) => {
     setError({ status: false, message: null });
     const { id, type, checked, value } = e.target;

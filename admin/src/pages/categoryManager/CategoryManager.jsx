@@ -56,7 +56,7 @@ const CategoryManager = () => {
   };
   const deleteCategoryTempById = async (category) => {
     try {
-      if (window.confirm("Are you sure you want to delete this category?") == true) {
+      if (window.confirm("Are you sure you want to delete this category?") === true) {
         const response = await toast.promise(API.updateCategory({ ...category, activeStatus: false }, true), {
           pending: "Deleting category...",
           success: "Category Deleted👌",
@@ -103,7 +103,7 @@ const CategoryManager = () => {
                 <span className="col-3">{category.isTrending ? "Trending" : "Not trending"}</span>
                 <span className="col-3">{parseDate(category.createdAt)}</span>
                 <div className="col-3 d-flex justify-content-between">
-                  <span>{category.categoryDesc ? category.categoryDesc : "No description"}</span>
+                  <span className="text-truncate">{category.categoryDesc ? category.categoryDesc : "No description"}</span>
                   <div className="iconBtn">
                     <button
                       className="iconbutton "
