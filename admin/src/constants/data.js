@@ -95,6 +95,7 @@ export const heroSectionButtonData = [
     dashbordView: true,
     blogManagerView: true,
     categoryManagerView: false,
+    link: "/blogmanager/edit/:id",
   },
   {
     id: "deleteBlog",

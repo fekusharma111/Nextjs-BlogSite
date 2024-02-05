@@ -3,13 +3,14 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import ReactQuill from "react-quill";
 import { generateSlug } from "../../utils/utils";
 import { toast } from "react-toastify";
+import { API } from "../../service/axiosInstance";
 
 const CreateBlog = () => {
   const [state, setState] = useState({
     title: "",
     slug: "",
     description: "",
-    trending: false,
+    isTrending: false,
   });
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
@@ -51,7 +52,7 @@ const CreateBlog = () => {
     }
   };
 
-  const handleBlogSubmit = () => {
+  const handleBlogSubmit = async () => {
     try {
       if (loading) {
         return;
@@ -63,10 +64,20 @@ const CreateBlog = () => {
       }
       setError({ status: false, message: null });
       setLoading(true);
+      const payload = { ...state, content };
+
+      const response = await toast.promise(API.createBlog(payload, true), {
+        pending: "Publishing...",
+        success: `"/${state.slug}" blog created successfully`,
+        error: "Error publishing blog!🤯",
+      });
+      setLoading(false);
+      console.log("response of blog publishing", response);
     } catch (error) {
-      setError({ status: true, message: "Error submitting blog" });
-      toast.error("Please fill the (*) mark field !");
+      setError({ status: true, message: error.originalMessage ? error.originalMessage : error.message.message });
+      toast.error(error.originalMessage ? error.originalMessage : error.message.message);
       console.error("Error submitting blog", error);
+      setLoading(false);
     }
   };
   return (
@@ -130,7 +141,7 @@ const CreateBlog = () => {
           </div>
           <div className="form-check mb-3">
             <label className="form-check-label">
-              <input className="form-check-input" type="checkbox" name="trending" value={state.trending} onChange={handleBlogInput} /> Trending
+              <input className="form-check-input" type="checkbox" name="isTrending" value={state.isTrending} onChange={handleBlogInput} /> Trending
             </label>
           </div>
           {error.status && <small className="text-danger">{error.message}</small>}
