@@ -84,6 +84,7 @@ export const heroSectionButtonData = [
     dashbordView: true,
     blogManagerView: true,
     categoryManagerView: false,
+    link: "/blogmanager/create",
   },
   {
     id: "editBlog",
@@ -94,6 +95,7 @@ export const heroSectionButtonData = [
     dashbordView: true,
     blogManagerView: true,
     categoryManagerView: false,
+    link: "/blogmanager/edit/:id",
   },
   {
     id: "deleteBlog",

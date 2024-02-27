@@ -26,7 +26,7 @@ app.locals.logger = logger;
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // Replace with your frontend's domain
+    origin: "http://localhost:3001", // Replace with your frontend's domain
     credentials: true,
   })
 );

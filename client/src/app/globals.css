@@ -16,6 +16,9 @@ body {
   overflow-x: hidden;
 }
 
+.theme-bgcolor {
+  background-color: var(--PrimaryTeal);
+}
 a {
   text-decoration: none;
   color: inherit;

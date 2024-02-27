@@ -1,3 +1,4 @@
+import createBlogModel from "../models/blogs/createBlog.js";
 import createCategoryModel from "../models/categories/createCategory.js";
 import { cryptoEncryption } from "../utils/helper.js";
 
@@ -57,5 +58,28 @@ export const updateCategoryById = async (req, res) => {
     res.status(200).json({ encryptedData: cryptoEncryptedData });
   } else {
     res.status(400).json({ message: "Error while updating category", error: error });
+  }
+};
+
+export const createBlog = async (req, res) => {
+  try {
+    const newBlogData = {
+      ...req.body,
+      activeStatus: true,
+      createdBy: req.user.username,
+    };
+    const blogExists = await createBlogModel.checkIfBlogExists(req.body.slug);
+    if (blogExists) {
+      return res.status(400).json({ message: "blog already exists." });
+    }
+    const newBlog = new createBlogModel(newBlogData);
+    const savedBlog = await newBlog.save();
+
+    // console.log("Category created successfully:", savedCategory);
+    const cryptoEncryptedData = cryptoEncryption(savedBlog);
+    res.status(200).json({ encryptedData: cryptoEncryptedData });
+    console.log("creating blog here", newBlogData);
+  } catch (error) {
+    res.status(400).json({ message: "Error while creating blog", error: error });
   }
 };

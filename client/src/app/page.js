@@ -4,9 +4,16 @@ import HeroSection from "@/components/heroSection/HeroSection";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <HeroSection />
-      <MainSection />
-    </div>
+    <>
+      <section className="theme-bgcolor py-5">
+        <HeroSection />
+      </section>
+      <section>
+        <MainSection />
+      </section>
+    </>
+    // <div className={styles.container}>
+
+    // </div>
   );
 }

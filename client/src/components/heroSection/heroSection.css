@@ -1,11 +1,11 @@
-.container {
+/* .container {
   background: var(--PrimaryTeal);
   height: calc(100vh - 65vh);
   color: var(--lightTextColor);
   display: flex;
   align-items: center;
   gap: 100px;
-}
+} */
 
 .item {
   flex: 1;
@@ -14,13 +14,11 @@
   gap: 50px;
 }
 .title {
-  margin-left: 100px;
-  width: 40vw;
-  font-size: 72px;
   background: linear-gradient(to right, white, #008080);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
+  font-size: clamp(2rem, 10vw, 3.5rem);
   /* animation: slideLeftToRight 12s linear infinite; */
 }
 .headerImg {

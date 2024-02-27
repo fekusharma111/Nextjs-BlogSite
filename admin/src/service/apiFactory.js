@@ -5,4 +5,5 @@ export const SERVICE_URLs = {
   createCategory: { url: "/createCategory", method: "POST" },
   getAllCategories: { url: "/getAllCategories", method: "GET" },
   updateCategory: { url: "/updateCategory", method: "POST" },
+  createBlog: { url: "/createBlog", method: "POST" },
 };
