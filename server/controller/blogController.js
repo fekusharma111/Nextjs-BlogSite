@@ -83,3 +83,37 @@ export const createBlog = async (req, res) => {
     res.status(400).json({ message: "Error while creating blog", error: error });
   }
 };
+
+export const getAllBLogs = async (req, res) => {
+  try {
+    let allBlogs = await createBlogModel.find({ activeStatus: true });
+    // console.log("getting all categories", allCategories);
+    res.status(200).json(allBlogs);
+  } catch (error) {
+    console.error("Error creating category:", error);
+    res.status(400).json({ message: "Error while getting all Blog", error: error });
+  }
+};
+
+export const updateBlogById = async (req, res) => {
+  console.log("updating blogbyid api called", req.body);
+  const newBlogData = {
+    ...req.body,
+    updatedBy: [
+      {
+        updaterName: req.user.username,
+        updatedAt: new Date(),
+      },
+      // ... any existing update objects
+      ...(req.body.updatedBy || []),
+    ],
+    updatedAt: new Date(),
+  };
+  const updatedBlog = await createBlogModel.findByIdAndUpdate(newBlogData._id, newBlogData, { new: true });
+  if (updatedBlog) {
+    const cryptoEncryptedData = cryptoEncryption(updatedBlog);
+    res.status(200).json({ encryptedData: cryptoEncryptedData });
+  } else {
+    res.status(400).json({ message: "Error while updating blog", error: error });
+  }
+};
