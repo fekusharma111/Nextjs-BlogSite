@@ -1,0 +1,7 @@
+.trending {
+  border: 1px solid;
+  height: fit-content;
+}
+.trendingBox {
+  max-height: 500px;
+}

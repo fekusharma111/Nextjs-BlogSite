@@ -1,8 +1,9 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Poppins } from "next/font/google";
+
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./globals.css";
 import Head from "next/head";
 import Script from "next/script";
 // import "bootstrap/dist/js/bootstrap.min.js";
@@ -12,7 +13,11 @@ import Script from "next/script";
   crossorigin="anonymous"
 ></script>;
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] })
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Layer Matrix",
@@ -27,7 +32,7 @@ export default function RootLayout({ children }) {
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"
       />
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <div className="wrapper">
           <header>
             <Navbar />

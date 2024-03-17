@@ -8,7 +8,7 @@ export default function Home() {
       <section className="theme-bgcolor py-5">
         <HeroSection />
       </section>
-      <section>
+      <section className="py-5 bg-white">
         <MainSection />
       </section>
     </>
